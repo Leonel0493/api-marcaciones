@@ -3,6 +3,9 @@ import "dotenv/config";
 import express from "express";
 import morgan from "morgan";
 
+// * import routes
+import CountryRoutes from "./Catalogs_CRUD/Country/Infra/Country.routes";
+
 const app = express();
 
 // * configure middeleware's
@@ -11,6 +14,7 @@ app.use(morgan("dev"));
 app.use(cors());
 
 // * api routes
+app.use("/api/v1/country", CountryRoutes);
 
 // * config express
 const port = process.env.API_PORT || 3000;

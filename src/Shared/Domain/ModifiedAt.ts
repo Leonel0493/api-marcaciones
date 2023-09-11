@@ -19,7 +19,7 @@ export class ModifiedAt {
       throw new InvalidArgumentError("El mes no es valido");
 
     const day = date.getDay();
-    if (day < 1 || day > 31)
+    if (day < 0 || day > 6)
       throw new InvalidArgumentError("El dia del mes no es valido");
   }
 }

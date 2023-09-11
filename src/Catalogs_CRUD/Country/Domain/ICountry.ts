@@ -9,3 +9,10 @@ export interface ICointry {
   modified_at: Date | null;
   enabled: boolean;
 }
+
+export interface IUpdateCountryData {
+  country: string;
+  abbreviation: string;
+  flag_img: Buffer | null;
+  modified_by: string;
+}

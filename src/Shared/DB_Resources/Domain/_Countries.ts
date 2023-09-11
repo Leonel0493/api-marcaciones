@@ -60,6 +60,7 @@ _Country.init(
     sequelize: _ResourcesDB,
     modelName: "_Country",
     tableName: "countries",
+    timestamps: false,
   }
 );
 
