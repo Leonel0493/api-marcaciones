@@ -3,9 +3,9 @@ import { InvalidArgumentError } from "../../../Shared/Domain/InvalidArgumentErro
 export class CountryFlagImage {
   constructor(readonly flagImg: Buffer | null) {
     this.flagImg = flagImg;
-    if (flagImg !== null) {
-      this.validateIsImage(flagImg);
-      this.validateSize(flagImg);
+    if (this.flagImg !== null) {
+      this.validateIsImage(this.flagImg);
+      this.validateSize(this.flagImg);
     }
   }
   private validateIsImage(value: Buffer) {

@@ -9,7 +9,7 @@ export class Delete {
   async Delete(id: string): Promise<boolean> {
     const countryId = new Id(id);
     const search = new Search(this.repository);
-    const countryExist = search.Search(countryId);
+    const countryExist = await search.Search(countryId);
 
     if (countryExist === null)
       throw new InvalidArgumentError(

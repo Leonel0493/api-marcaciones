@@ -3,7 +3,7 @@ import { InvalidArgumentError } from "../../../Shared/Domain/InvalidArgumentErro
 export class CountryName {
   constructor(readonly country: string) {
     this.country = country;
-    this.validateCountryName(country);
+    this.validateCountryName(this.country);
   }
 
   private validateCountryName(country: string) {

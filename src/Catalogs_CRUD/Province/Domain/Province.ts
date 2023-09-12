@@ -4,44 +4,36 @@ import { Enabled } from "../../../Shared/Domain/Enabled";
 import { Id } from "../../../Shared/Domain/Id";
 import { ModifiedAt } from "../../../Shared/Domain/ModifiedAt";
 import { ModifiedBy } from "../../../Shared/Domain/ModifiedBy";
-import { CountryAbbreviation } from "./CountryAbbreviation";
-import { CountryFlagImage } from "./CountryFlagImage";
-import { CountryName } from "./CountryName";
-import { ICointry } from "./ICountry";
+import { IProvince } from "./IProvince.";
+import { ProvinceName } from "./ProvinceName";
 
-export class Country {
+export class Province {
   private readonly id: Id;
-  private countyName: CountryName;
-  private countryAbbreviation: CountryAbbreviation;
-  private flagImage: CountryFlagImage;
+  private provinceName: ProvinceName;
+  private idCountry: Id;
   private readonly createdBy: CreatedBy;
   private readonly createdAt: CreatedAt;
   private modifedBy: ModifiedBy;
   private modifiedAt: ModifiedAt;
   private enabled: Enabled;
 
-  constructor(data: ICointry) {
+  constructor(data: IProvince) {
     this.id = new Id(data.id);
-    this.countyName = new CountryName(data.country);
-    this.countryAbbreviation = new CountryAbbreviation(data.abbreviation);
-    this.flagImage = new CountryFlagImage(data.flag_img);
+    this.provinceName = new ProvinceName(data.province);
+    this.idCountry = new Id(data.id_country);
     this.createdBy = new CreatedBy(data.created_by);
     this.createdAt = new CreatedAt(data.created_at);
-    this.modifedBy = new ModifiedBy(data.modified_by);
+    this.modifedBy = new ModifiedBy(data.modifed_by);
     this.modifiedAt = new ModifiedAt(data.modified_at);
     this.enabled = new Enabled(data.enabled);
   }
 
-  public UpdateCountryName(country: string) {
-    this.countyName = new CountryName(country);
+  public UpdateProvinceName(provice: string) {
+    this.provinceName = new ProvinceName(provice);
   }
 
-  public UpdateAbbreviation(abbreviation: string) {
-    this.countryAbbreviation = new CountryAbbreviation(abbreviation);
-  }
-
-  public UpdateFlagImage(flagImage: Buffer | null) {
-    this.flagImage = new CountryFlagImage(flagImage);
+  public UpdateIdCountry(idCountry: string) {
+    this.idCountry = new Id(idCountry);
   }
 
   public UpdateModifiedBy(userName: string) {
@@ -52,15 +44,18 @@ export class Country {
     this.modifiedAt = new ModifiedAt(date);
   }
 
-  public getPrimitives(): ICointry {
+  public DisableProvince() {
+    this.enabled = new Enabled(false);
+  }
+
+  public getPrimitives(): IProvince {
     return {
       id: this.id.id,
-      country: this.countyName.country,
-      abbreviation: this.countryAbbreviation.abbreviation,
-      flag_img: this.flagImage.flagImg,
+      province: this.provinceName.provinceName,
+      id_country: this.idCountry.id,
       created_by: this.createdBy.userName,
       created_at: this.createdAt.currentDate,
-      modified_by: this.modifedBy.userName,
+      modifed_by: this.modifedBy.userName,
       modified_at: this.modifiedAt.currentDate,
       enabled: this.enabled.enabled,
     };
