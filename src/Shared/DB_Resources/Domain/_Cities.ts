@@ -1,39 +1,34 @@
 import { DataTypes, Model } from "sequelize";
-import { ICointry } from "../../../Catalogs_CRUD/Country/Domain/ICountry";
+import { ICity } from "../../../Catalogs_CRUD/City/Domain/ICity";
 import _ResourcesDB from "../Infra/resourcesDbConnection";
 
-abstract class CountryDbModel extends Model<ICointry> {
+abstract class CityDBModel extends Model<ICity> {
   id!: string;
-  country!: string;
-  abbreviation!: string;
-  flag_img!: Buffer | null;
+  city!: string;
+  id_province!: string;
   created_by!: string;
   created_at!: Date;
-  modified_by!: string | null;
+  modifed_by!: string | null;
   modified_at!: Date | null;
   enabled!: boolean;
 }
 
-class _Country extends CountryDbModel {}
+class _Cities extends CityDBModel {}
 
-_Country.init(
+_Cities.init(
   {
     id: {
       type: DataTypes.STRING(36),
       allowNull: false,
       primaryKey: true,
     },
-    country: {
+    city: {
       type: DataTypes.STRING(50),
       allowNull: false,
     },
-    abbreviation: {
-      type: DataTypes.STRING(3),
+    id_province: {
+      type: DataTypes.STRING(36),
       allowNull: false,
-    },
-    flag_img: {
-      type: DataTypes.BLOB,
-      allowNull: true,
     },
     created_by: {
       type: DataTypes.STRING(25),
@@ -43,7 +38,7 @@ _Country.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
-    modified_by: {
+    modifed_by: {
       type: DataTypes.STRING(25),
       allowNull: true,
     },
@@ -58,10 +53,8 @@ _Country.init(
   },
   {
     sequelize: _ResourcesDB,
-    modelName: "_Country",
-    tableName: "countries",
+    tableName: "cities",
+    modelName: "_Provinces",
     timestamps: false,
   }
 );
-
-export default _Country;

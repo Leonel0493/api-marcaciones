@@ -18,7 +18,7 @@ class _Provinces extends ProvinceDbModel {}
 _Provinces.init(
   {
     id: {
-      type: DataTypes.STRING(45),
+      type: DataTypes.STRING(36),
       allowNull: false,
       primaryKey: true,
     },
@@ -27,7 +27,7 @@ _Provinces.init(
       allowNull: false,
     },
     id_country: {
-      type: DataTypes.STRING(50),
+      type: DataTypes.STRING(36),
       allowNull: false,
     },
     created_by: {
