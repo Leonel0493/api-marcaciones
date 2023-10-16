@@ -58,3 +58,5 @@ _Cities.init(
     timestamps: false,
   }
 );
+
+export default _Cities;

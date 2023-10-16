@@ -48,7 +48,7 @@ export class City {
     this.enabled = new Enabled(false);
   }
 
-  public ToPrimitives(): ICity {
+  public GetPrimitives(): ICity {
     return {
       id: this.id.id,
       city: this.cityName.cityName,
