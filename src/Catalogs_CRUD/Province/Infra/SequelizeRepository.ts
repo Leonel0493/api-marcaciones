@@ -49,7 +49,7 @@ export class SequelizeRepository implements ProvinceRepository {
 
   async delete(province: Province): Promise<boolean> {
     const _provinces = province.getPrimitives();
-    const [_disabledCountry] = await _Provinces.update(
+    const [_disabledProvince] = await _Provinces.update(
       {
         enabled: _provinces.enabled,
       },
@@ -58,7 +58,7 @@ export class SequelizeRepository implements ProvinceRepository {
       }
     );
 
-    return _disabledCountry === 0 ? false : true;
+    return _disabledProvince === 0 ? false : true;
   }
 
   async getAll(): Promise<IProvince[]> {

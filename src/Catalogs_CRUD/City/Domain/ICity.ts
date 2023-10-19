@@ -8,3 +8,9 @@ export interface ICity {
   modified_at: Date | null;
   enabled: boolean;
 }
+
+export interface IUpdateCity {
+  city: string;
+  id_province: string;
+  modify_by: string;
+}
