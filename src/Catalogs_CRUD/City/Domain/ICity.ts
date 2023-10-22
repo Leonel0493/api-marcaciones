@@ -12,5 +12,5 @@ export interface ICity {
 export interface IUpdateCity {
   city: string;
   id_province: string;
-  modify_by: string;
+  modified_by: string;
 }
