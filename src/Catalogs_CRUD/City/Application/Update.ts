@@ -16,7 +16,7 @@ export class Update {
 
       newCity.UpdateCityName(data.city);
       newCity.UpdateProvinceId(data.id_province);
-      newCity.UpdateModifiedBy(data.modify_by);
+      newCity.UpdateModifiedBy(data.modified_by);
       newCity.UpdateModifiedAt(new Date());
 
       return this.repository.update(newCity);

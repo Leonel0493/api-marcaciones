@@ -29,7 +29,7 @@ const provinceController = new ProvinceController(
 // * set routes
 routes.get("/", provinceController.getAll);
 routes.get("/:id", provinceController.searchByProvince);
-routes.get("/:idCountry", provinceController.searchByCountryId);
+routes.get("/byCountry/:idCountry", provinceController.searchByCountryId);
 routes.post("/", provinceController.save);
 routes.put("/", provinceController.update);
 routes.delete("/", provinceController.deleted);

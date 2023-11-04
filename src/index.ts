@@ -4,6 +4,7 @@ import express from "express";
 import morgan from "morgan";
 
 // * import routes
+import CityRoutes from "./Catalogs_CRUD/City/Infra/City.routes";
 import CountryRoutes from "./Catalogs_CRUD/Country/Infra/Country.routes";
 import ProvinceRoutes from "./Catalogs_CRUD/Province/Infra/Provinces.routes";
 
@@ -17,6 +18,7 @@ app.use(cors());
 // * api routes
 app.use("/api/v1/country", CountryRoutes);
 app.use("/api/v1/province", ProvinceRoutes);
+app.use("/api/v1/city", CityRoutes);
 
 // * config express
 const port = process.env.API_PORT || 3000;
