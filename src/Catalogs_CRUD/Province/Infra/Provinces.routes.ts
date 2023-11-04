@@ -32,6 +32,6 @@ routes.get("/:id", provinceController.searchByProvince);
 routes.get("/byCountry/:idCountry", provinceController.searchByCountryId);
 routes.post("/", provinceController.save);
 routes.put("/", provinceController.update);
-routes.delete("/", provinceController.deleted);
+routes.delete("/:id", provinceController.deleted);
 
 export default routes;

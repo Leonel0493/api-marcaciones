@@ -27,6 +27,6 @@ routes.get("/:id", cityController.searchByCity);
 routes.get("/byProvince/:idProvince", cityController.searchByProvinceId);
 routes.post("/", cityController.save);
 routes.put("/", cityController.update);
-routes.delete("/", cityController.delete);
+routes.delete("/:id", cityController.delete);
 
 export default routes;
