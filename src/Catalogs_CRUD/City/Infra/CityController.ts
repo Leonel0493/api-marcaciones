@@ -29,7 +29,6 @@ export class CitiesController {
 
   public save = async (req: Request<{}, {}, saveDataRquest>, res: Response) => {
     try {
-      console.log(req.body);
       const { city, id_province, created_by } = req.body;
       const savedCity = await this.Save.Save(city, id_province, created_by);
 
